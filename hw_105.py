@@ -1,6 +1,3 @@
-import re
-
-
 def is_valid_credit_card(credit_card):
     credit_card = credit_card.replace(" ", "")
     sum = 0
@@ -21,6 +18,5 @@ def is_valid_credit_card(credit_card):
     return ((sum % 10) == 0)
 
 score = input("Input your credit card number: \n")
-# print re.sub(r'\s', '', kio)
 print(is_valid_credit_card(score))
 
