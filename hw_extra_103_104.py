@@ -14,5 +14,7 @@ def rle_decode(value):
 s1 = "WWWWWWWWWWWWBWWWWWWWWWWWWBBBWWWWWWWWWWWWWWWWWWWWWWWWB"
 # s2 = "AAAAAAAAAAAAAAAAAGGGGGGGGGGGGGGGGGGGGGGGBBTTTTTTTTTTTTTTTTTTTTTTTT" ---- test
 
+assert s1 == (rle_decode(rle_encode(s1)))
+
 print(rle_encode(s1))
 print(rle_decode(rle_encode(s1)))
