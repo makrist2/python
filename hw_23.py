@@ -8,4 +8,4 @@ def chess_reward():
             return c, i
 
 
-print(chess_reward())
+print(chess_reward()) 
