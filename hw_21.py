@@ -20,7 +20,7 @@ def get_max_digit_a(number):
     return m
 
 
-rnd_num = random.randint(000000000000, 999999999999)
+rnd_num = random.randint(1e11, 1e12-1)
 # print(rnd_num)
 print(get_max_digit_b(rnd_num))
 
