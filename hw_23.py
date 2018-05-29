@@ -1,6 +1,6 @@
 def chess_reward():
     i = 1
-    c = 1
+    c = 0
     while c <= 64:
         i *= 2
         c += 1
