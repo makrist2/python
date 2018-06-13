@@ -1,8 +1,9 @@
-word = 'downstream'
-word = word.lower()
-if len(word) == len(set(word)):
-    print('Isogram')
-else:
-    print('Not an isogram')
+def is_isogram(word):
+    true_word = word.lower()
+    for char in true_word:
+        if true_word.count(char) > 1:
+            return False
+    return True
 
 
+print(is_isogram('ms acquired g?th_b'))
