@@ -9,11 +9,10 @@ class Vehicle:
         self.year_of_construction = year_of_construction
         self.price = price
 
-    def is_full(self, lb, up):
-        global free_seats
+    def check_vehicle_for_free_seats(self, lb, up):
         curr_vehicle_volume = 0
         free_space = self.capacity
-
+        free_seats = 0
         while free_space > 0:
             cap = random.randint(lb, up)
             if free_space >= cap:
@@ -72,20 +71,41 @@ class Airplane(Vehicle):
         print('┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼')
 
 
-air1 = Airplane(180.8, 1000, 850, 1970, 300, 10000)
+air1 = Airplane(
+    weight=180.8,
+    speed=1000,
+    capacity=850,
+    year_of_construction=1970,
+    price=300,
+    distance_of_flight=10000
+)
 air1.pretty_print()
 air1.arrival()
 print('‡‡‡‡‡‡‡‡‡‡‡‡ Get passengers in transport ‡‡‡‡‡‡‡‡‡‡‡‡')
-air1.is_full(lb=1, up=10)
+air1.check_vehicle_for_free_seats(lb=1, up=10)
 print('\n')
-train1 = Train(6000, 'Based on train type', 500, 1756, 40, False)
+train1 = Train(
+    weight=6000,
+    speed='Based on train type',
+    capacity=500,
+    year_of_construction=1756,
+    price=40,
+    dual_rail=False
+)
 train1.pretty_print()
 train1.speed_check()
 print('‡‡‡‡‡‡‡‡‡‡‡‡ Get passengers in transport ‡‡‡‡‡‡‡‡‡‡‡‡')
-train1.is_full(lb=1, up=25)
+train1.check_vehicle_for_free_seats(lb=1, up=25)
 print('\n')
-train2 = Train(5000, 'Based on train type', 400, 2000, 100, True)
+train2 = Train(
+    weight=5000,
+    speed='Based on train type',
+    capacity=400,
+    year_of_construction=2000,
+    price=100,
+    dual_rail=True
+)
 train2.pretty_print()
 train2.speed_check()
 print('‡‡‡‡‡‡‡‡‡‡‡‡ Get passengers in transport ‡‡‡‡‡‡‡‡‡‡‡‡')
-train2.is_full(lb=1, up=40)
+train2.check_vehicle_for_free_seats(lb=1, up=40)
