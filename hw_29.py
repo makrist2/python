@@ -9,9 +9,9 @@ def gen_password():
     second = 5
     third = 7
     pass_ = []
-    chars_str = str(string.ascii_letters + string.ascii_lowercase + string.digits + '_')
+    chars_str = string.ascii_letters + string.ascii_lowercase + string.digits + '_'
     for i in range(max_pass_len):
-        pass_ += str(random.choice(chars_str))
+        pass_ = [random.choice(chars_str) for _ in range(8)]
     if re.search('[0-9]', str(pass_)) not in pass_:
         pass_[random.randint(0, first)] = random.choice(string.digits)
     if re.search('[A-Z]', str(pass_)) not in pass_:
