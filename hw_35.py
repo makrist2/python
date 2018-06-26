@@ -10,17 +10,17 @@ class Circle:
         self.y_centre_coord = y_centre_coord
         self.radius = radius
 
-    def check(self, point):
+    def is_point_in_circle(self, point):
         if (point.x_coord - self.x_centre_coord) ** 2 + (point.y_coord - self.y_centre_coord) ** 2 <= self.radius ** 2:
-            print('Point in circle')
+            return True
         else:
-            print('Point out circle')
+            return False
 
 
 p1 = Point(2, 3)
 c1 = Circle(10, 20, 30)
-c1.check(p1)
+print(c1.is_point_in_circle(p1))
 
 p2 = Point(100, 200)
 c2 = Circle(5, 10, 5)
-c2.check(p2)
+print(c2.is_point_in_circle(p2))
