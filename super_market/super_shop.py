@@ -13,15 +13,15 @@ class SuperShop:
         items_dict = {}
         if self.storage_facilities:
             for item in self.storage_facilities.get_item():
-                if item.category not in items_dict:
-                    items_dict[item.category] = 0
-                items_dict[item.category] += 1
+                if item.__class__.__name__ not in items_dict:
+                    items_dict[item.__class__.__name__] = 0
+                items_dict[item.__class__.__name__] += 1
 
         invoice_dict = {}
         for invoice in self.invoices:
-            if invoice.product.category not in invoice_dict:
-                invoice_dict[invoice.product.category] = 0
-            invoice_dict[invoice.product.category] += invoice.income
+            if invoice.product.__class__.__name__ not in invoice_dict:
+                invoice_dict[invoice.product.__class__.__name__] = 0
+            invoice_dict[invoice.product.__class__.__name__] += invoice.income
 
         output = ""
         output += "Customers: %i\n" % len(self.customers)

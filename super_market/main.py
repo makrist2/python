@@ -16,7 +16,7 @@ if __name__ == "__main__":
 
         print("What do you want to sell?")
         for i, product in enumerate(my_shop.storage_facilities.get_item()):
-            print("%i| %s: %s" % (i, product.category, product.title))
+            print("%i| %s: %s" % (i, product.__class__.__name__, product.title))
 
         product_id = int(input("Product > "))
 
