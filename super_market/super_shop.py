@@ -5,14 +5,14 @@ class SuperShop:
 
     def __init__(self):
         self.total_income = 0
-        self.storage_facilities = None
+        self._storage_facilities = None
         self.invoices = []
         self.customers = []
 
     def __str__(self):
         items_dict = {}
-        if self.storage_facilities:
-            for item in self.storage_facilities.get_item():
+        if self._storage_facilities:
+            for item in self._storage_facilities.get_item():
                 if item.__class__.__name__ not in items_dict:
                     items_dict[item.__class__.__name__] = 0
                 items_dict[item.__class__.__name__] += 1
@@ -36,7 +36,7 @@ class SuperShop:
         return output
 
     def add_store(self, store):
-        self.storage_facilities = store
+        self._storage_facilities = store
 
     def add_customer(self, customer):
         self.customers.append(customer)
@@ -46,8 +46,8 @@ class SuperShop:
 
     def sell(self, customer_id, item_id):
         in_number = len(self.invoices) + 1
-        items = self.storage_facilities.get_item()
+        items = self._storage_facilities.get_item()
         invoice = Invoice(in_number, self.customers[customer_id], items[item_id])
         self.add_invoice(invoice)
         self.total_income += invoice.income
-        self.storage_facilities.remove_item(items[item_id])
+        self._storage_facilities.remove_item(items[item_id])
