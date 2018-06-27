@@ -1,7 +1,7 @@
 import re
 import random
 
-
+GOOD_CANDIDATE_FOR_CONSTANT = 3
 def pemrtuate(text):
     words = re.findall(r'\w+', text)
     shuffled_text = ''
@@ -12,11 +12,9 @@ def pemrtuate(text):
             continue
         middle = word[1:-1]
         start = 0
-        stop = 3
         shuffled_word = ''
-        shuffle_step = 3
-        for i in range(0, len(middle), shuffle_step):
-            to_shuffle = list(middle[start + i: stop + i])
+        for i in range(0, len(middle), GOOD_CANDIDATE_FOR_CONSTANT):
+            to_shuffle = list(middle[start + i: GOOD_CANDIDATE_FOR_CONSTANT + i])
             random.shuffle(to_shuffle)
             to_shuffle = ''.join(to_shuffle)
             shuffled_word += to_shuffle
